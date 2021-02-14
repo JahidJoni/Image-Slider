@@ -18,7 +18,7 @@ const showImages = (images) => {
   toggleSpinner();
   if (images == "") {
     document.getElementById('slider-info').style.display = "none";
-
+    document.getElementById('invalid').style.display = "none";
     document.getElementById('no-result').style.display = "block";
   }
   else {
