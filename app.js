@@ -16,18 +16,25 @@ const KEY = '15674931-a9d714b6e9d654524df198e00&q';
 // show images 
 const showImages = (images) => {
   toggleSpinner();
-  imagesArea.style.display = 'block';
-  gallery.innerHTML = '';
-  // show gallery title
-  galleryHeader.style.display = 'flex';
-  images.forEach(image => {
-    let div = document.createElement('div');
-    div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
-    div.innerHTML = `<img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">
-    <button class="btn btn-info">Download</button>`;
-    gallery.appendChild(div)
-  })
+  if (images == "") {
+    document.getElementById('slider-info').style.display = "none";
 
+    document.getElementById('no-result').style.display = "block";
+  }
+  else {
+    document.getElementById('no-result').style.display = "none";
+    imagesArea.style.display = 'block';
+    gallery.innerHTML = '';
+    // show gallery title
+    galleryHeader.style.display = 'flex';
+    images.forEach(image => {
+      let div = document.createElement('div');
+      div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
+      div.innerHTML = `<img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">
+    <button class="btn btn-info">Download</button>`;
+      gallery.appendChild(div)
+    })
+  }
 }
 
 const getImages = (query) => {
