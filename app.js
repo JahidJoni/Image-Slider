@@ -148,27 +148,3 @@ const toggleSpinner = () => {
   const spinner = document.getElementById('searching');
   spinner.classList.toggle('d-none');
 }
-
-//download area
-function forDownload(data) {
-  data.forEach(image => {
-    info.innerHTML = `
-      <div class="container">
-        <hr color="#f2f2f2">
-        <div class="row">
-          <div class="col-md-4 text-center">
-            <img src="${image.webformatURL}" alt="">
-          </div>
-          <div class="col-md-8">
-
-          </div>
-        </div>
-      </div>
-    `;
-  });
-}
-function ImageMeal(Id) {
-  fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
-    .then(response => response.json())
-    .then(data => forDownload(data.hits));
-};
