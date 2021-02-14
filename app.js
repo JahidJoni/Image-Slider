@@ -7,7 +7,7 @@ const sliderContainer = document.getElementById('sliders');
 // selected image 
 let sliders = [];
 
-
+//Bonus part included 1- processing spinner while searching 2- Caught and display a massage for not matching result
 // If this key doesn't work
 // Find the name in the url and go to their website
 // to create your own api key
@@ -30,8 +30,7 @@ const showImages = (images) => {
     images.forEach(image => {
       let div = document.createElement('div');
       div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
-      div.innerHTML = `<img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">
-    <button class="btn btn-info">Download</button>`;
+      div.innerHTML = `<img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
       gallery.appendChild(div)
     })
   }
@@ -150,7 +149,7 @@ duration.addEventListener("keyup", function (event) {
     sliderBtn.click();
   }
 });
-//spinner operation
+//spinner operation Bonus Part
 const toggleSpinner = () => {
   const spinner = document.getElementById('searching');
   spinner.classList.toggle('d-none');
